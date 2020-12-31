@@ -1,0 +1,28 @@
+.container {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.header {
+  margin-top: 32px;
+  display: flex;
+}
+
+.header h1 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 56px;
+  letter-spacing: 3px;
+  margin: 5px 10px 0px;
+}
+
+.header p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 28px;
+  margin: 0px 10px;
+}
+
+@media (max-width: 830px) {
+  .container {
+    width: 100vw;
+  }
+}
