@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Tool } from '../../pages';
-import { TiDelete, FaTrashAlt } from 'react-icons/all';
+import { FaTrashAlt } from 'react-icons/all';
 import './style.css';
 
 interface ToolProps {
