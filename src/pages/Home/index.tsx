@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-import ToolItem from '../components/ToolItem';
-import api from '../services/api';
-import logo from '../images/v4logo.png';
+import ToolItem from '../../components/ToolItem';
+import api from '../../services/api';
+import logo from '../../images/v4logo.png';
 import './style.css';
-import { Modal } from '../components/Modal';
+import { Modal } from '../../components/Modal';
 
 export interface Tool {
   title: string;
