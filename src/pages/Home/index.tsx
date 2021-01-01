@@ -5,6 +5,7 @@ import api from '../../services/api';
 import logo from '../../images/v4logo.png';
 import './style.css';
 import { Modal } from '../../components/Modal';
+import { SearchBar } from '../../components/SearchBar';
 
 export interface Tool {
   id: string;
@@ -26,17 +27,15 @@ function Home() {
 
   return (
     <div className="container">
-      <Modal showModal={showModal} setShowModal={setShowModal} tools={tools} setTools={setTools} />
       <header className="header">
         <img src={logo} alt="logo v4" />
         <div className="title">
           <h1>VUTTR</h1>
           <p>Very Useful Tools to Remember</p>
         </div>
-        <div>
-          <button onClick={() => setShowModal(true)}>Clique</button>
-        </div>
       </header>
+      <Modal showModal={showModal} setShowModal={setShowModal} tools={tools} setTools={setTools} />
+      <SearchBar setShowModal={setShowModal} />
       {tools.map(tool => (
         <ToolItem key={tool.id} tool={tool} />
       ))}
