@@ -7,6 +7,7 @@ import './style.css';
 import { Modal } from '../../components/Modal';
 
 export interface Tool {
+  id: string;
   title: string;
   link: string;
   description: string;
@@ -21,11 +22,11 @@ function Home() {
     api.get<Tool[]>('/tools?tag=online').then(response => {
       setTools(response.data);
     });
-  },[]);
+  }, []);
 
   return (
     <div className="container">
-      <Modal showModal={showModal} setShowModal={setShowModal} tools={tools} setTools={setTools}/>
+      <Modal showModal={showModal} setShowModal={setShowModal} tools={tools} setTools={setTools} />
       <header className="header">
         <img src={logo} alt="logo v4" />
         <div className="title">
@@ -36,7 +37,9 @@ function Home() {
           <button onClick={() => setShowModal(true)}>Clique</button>
         </div>
       </header>
-      {tools.map(tool => <ToolItem tool={tool} />)}
+      {tools.map(tool => (
+        <ToolItem key={tool.id} tool={tool} />
+      ))}
     </div>
   )
 }

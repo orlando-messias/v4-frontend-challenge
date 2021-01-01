@@ -1,4 +1,4 @@
-import React, { FormEvent, useEffect, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 
 import api from '../../services/api';
 import { ModalContainer, ModalForm } from './style';
@@ -18,7 +18,7 @@ export interface Tool {
   tags: string[];
 };
 
-export const Modal: React.FC<ModalProps> = ({ showModal, setShowModal, tools, setTools }) => {
+export const Modal: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
   const [title, setTitle] = useState('');
   const [link, setLink] = useState('');
   const [description, setDescription] = useState('');
@@ -34,8 +34,10 @@ export const Modal: React.FC<ModalProps> = ({ showModal, setShowModal, tools, se
       tags: newTags
     }).then(() => {
       alert('New Toll added');
-    }).catch((error: Error) => {
-      alert(`Wrong ${error}`);
+      setShowModal(false);
+      window.location.reload();
+    }).catch((error) => {
+      alert(error);
     })
   }
 
