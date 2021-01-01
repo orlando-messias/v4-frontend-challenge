@@ -21,7 +21,7 @@ function Home() {
     api.get<Tool[]>('/tools?tag=online').then(response => {
       setTools(response.data);
     });
-  });
+  },[]);
 
   return (
     <div className="container">

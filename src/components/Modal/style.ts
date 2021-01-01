@@ -12,7 +12,7 @@ export const ModalContainer = styled.div`
   align-items: center;
 `;
 
-export const ModalForm = styled.div`
+export const ModalForm = styled.form`
   width: 800px;
   height: 560px;
   padding: 10px 20px;
