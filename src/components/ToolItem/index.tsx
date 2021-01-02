@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
-
-import { Tool } from '../../pages/Home';
+import React, { useContext, useState } from 'react';
 import { FaTrashAlt } from 'react-icons/all';
-import './style.css';
+
 import api from '../../services/api';
+import { Tool } from '../../pages/Home';
+import { Modal } from '../ModalDelete';
 import { AppContext } from '../../context/AppContext';
+import './style.css';
 
 interface ToolProps {
   tool: Tool;
@@ -12,11 +13,11 @@ interface ToolProps {
 
 const ToolItem: React.FC<ToolProps> = ({ tool }) => {
   const { onDelete, setOnDelete } = useContext(AppContext);
+  const [showModal, setShowModal] = useState(false);
 
   async function handleRemove(id: String) {
     api.delete(`/tools/${id}`)
       .then(() => {
-        alert('Toll deleted');
         setOnDelete(!onDelete);
       }).catch((error) => {
         alert(error);
@@ -27,8 +28,9 @@ const ToolItem: React.FC<ToolProps> = ({ tool }) => {
     <div className="tool-item">
 
       <div className="head">
-        <span className="title"><a href={tool.link}>{tool.title}</a></span>
-        <div className="buttons" onClick={() => handleRemove(tool.id)}>
+        <span className="title"><a href={tool.link} target='_blank'>{tool.title}</a></span>
+        <Modal showModal={showModal} setShowModal={setShowModal} handleRemove={() => handleRemove(tool.id)} />
+        <div className="buttons" onClick={() => setShowModal(true)}>
           <FaTrashAlt className="delete-icon" />
           <span>remove</span>
         </div>
