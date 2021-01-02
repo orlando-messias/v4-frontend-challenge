@@ -23,6 +23,7 @@ function Home() {
   useEffect(() => {
     api.get<Tool[]>('/tools').then(response => {
       setTools(response.data);
+      console.log(response);
     });
   }, [onDelete, onAdd]);
 

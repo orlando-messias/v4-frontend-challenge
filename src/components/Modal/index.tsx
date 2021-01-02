@@ -39,7 +39,7 @@ export const Modal: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
       setShowModal(false);
       setOnAdd(!onAdd);
     }).catch((error) => {
-      alert(error);
+      alert(error.response.data.message);
     });
   };
 
