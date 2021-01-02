@@ -19,7 +19,7 @@ export interface Tool {
   tags: string[];
 };
 
-export const Modal: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
+export const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
   const { onAdd, setOnAdd } = useContext(AppContext);
   const [title, setTitle] = useState('');
   const [link, setLink] = useState('');

@@ -4,7 +4,7 @@ import ToolItem from '../../components/ToolItem';
 import api from '../../services/api';
 import logo from '../../images/v4logo.png';
 import './style.css';
-import { Modal } from '../../components/Modal';
+import { ModalAdd } from '../../components/ModalAdd';
 import { SearchBar } from '../../components/SearchBar';
 import { AppContext } from '../../context/AppContext';
 
@@ -37,7 +37,7 @@ function Home() {
         </div>
       </header>
 
-      <Modal showModal={showModal} setShowModal={setShowModal} tools={tools} />
+      <ModalAdd showModal={showModal} setShowModal={setShowModal} tools={tools} />
 
       <SearchBar setShowModal={setShowModal} />
 

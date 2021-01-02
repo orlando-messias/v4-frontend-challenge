@@ -9,10 +9,10 @@ a {
 
 .tool-item {
   font-family: 'Questrial', sans-serif;
-  background-color: white;
+  background-color: rgb(255, 255, 255, 0.6);
   border: 3px solid white;
   border-radius: 5px;
-  margin: 15px 0px;
+  margin: 8px 0px;
   padding: 0px 20px;
   min-height: 150px;
 }

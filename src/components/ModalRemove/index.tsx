@@ -10,7 +10,7 @@ interface ModalProps {
   handleRemove: Function;
 };
 
-export const Modal: React.FC<ModalProps> = ({ showModal, setShowModal, handleRemove }) => {
+export const ModalRemove: React.FC<ModalProps> = ({ showModal, setShowModal, handleRemove }) => {
 
   return (
     <div>

@@ -3,7 +3,7 @@ import { FaTrashAlt } from 'react-icons/all';
 
 import api from '../../services/api';
 import { Tool } from '../../pages/Home';
-import { Modal } from '../ModalDelete';
+import { ModalRemove } from '../ModalRemove';
 import { AppContext } from '../../context/AppContext';
 import './style.css';
 
@@ -29,7 +29,11 @@ const ToolItem: React.FC<ToolProps> = ({ tool }) => {
 
       <div className="head">
         <span className="title"><a href={tool.link} target='_blank'>{tool.title}</a></span>
-        <Modal showModal={showModal} setShowModal={setShowModal} handleRemove={() => handleRemove(tool.id)} />
+        <ModalRemove
+          showModal={showModal}
+          setShowModal={setShowModal}
+          handleRemove={() => handleRemove(tool.id)}
+        />
         <div className="buttons" onClick={() => setShowModal(true)}>
           <FaTrashAlt className="delete-icon" />
           <span>remove</span>
