@@ -1,15 +1,15 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useState, useContext } from 'react';
 
 import api from '../../services/api';
 import { ModalContainer, ModalForm } from './style';
 import { FaPlus } from "react-icons/fa";
+import { AppContext } from '../../context/AppContext';
 
 interface ModalProps {
   showModal: Boolean;
   setShowModal: Function;
   tools: Tool[];
-  setTools: Function;
-}
+};
 
 export interface Tool {
   title: string;
@@ -19,6 +19,7 @@ export interface Tool {
 };
 
 export const Modal: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
+  const { onAdd, setOnAdd } = useContext(AppContext);
   const [title, setTitle] = useState('');
   const [link, setLink] = useState('');
   const [description, setDescription] = useState('');
@@ -27,6 +28,7 @@ export const Modal: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
   function handleCreateTool(e: FormEvent) {
     e.preventDefault();
     const newTags = tags.split(' ');
+
     api.post('/tools', {
       title,
       link,
@@ -35,11 +37,11 @@ export const Modal: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
     }).then(() => {
       alert('New Toll added');
       setShowModal(false);
-      window.location.reload();
+      setOnAdd(!onAdd);
     }).catch((error) => {
       alert(error);
-    })
-  }
+    });
+  };
 
   return (
     <div>
@@ -91,5 +93,5 @@ export const Modal: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
         </ModalContainer>
       }
     </div>
-  )
-}
+  );
+};
