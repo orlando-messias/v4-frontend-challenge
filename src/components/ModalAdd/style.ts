@@ -15,12 +15,12 @@ export const ModalContainer = styled.div`
 export const ModalForm = styled.form`
   width: 800px;
   height: 560px;
-  padding: 10px 20px;
+  padding: 10px 10px;
   display: flex;
   align-items: center;
   align-self: center;
   flex-direction: column;
-  background-color: rgb(236, 236, 236);
+  background-color: rgb(225, 224, 224);
   z-index: 2;
   border-radius: 5px;
 
@@ -34,14 +34,15 @@ export const ModalForm = styled.form`
     font-size: 20px;
     font-weight: 900;
     marginRight: '5px';
-    color: #f26532;
+    color: rgb(223, 46, 48);
     margin: 10px 5px;
   }
 
   .title {
+    font-family: 'Open Sans', sans-serif;
     margin: 20px 0 0;
-    color: #000000;
-    font-size: 18px;
+    color: rgb(53, 51, 51);
+    font-size: 16px;
     margin-top: 15px;
   }
 
@@ -53,17 +54,18 @@ export const ModalForm = styled.form`
   }
 
   button {
-    align-self: flex-end;
-    margin : 20px 45px 40px;
-    align-items: center;
+    font-family: 'Open Sans', cursive;
     color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-    background: #1fcc6f;
-    border: 0;
-    padding: 5px 10px;
-    border-radius: 5px;
     display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    background: rgb(0, 178, 51);
+    padding: 8px 10px;
+    font-size: 14px;
+    cursor: pointer;
     &:hover {
       background: #179b55;
     }
@@ -74,6 +76,7 @@ export const ModalForm = styled.form`
       flex: 1;
       text-align: center;
       font-weight: bold;
+      margin: 0 5px;
     }
   }
 
@@ -85,16 +88,21 @@ export const ModalForm = styled.form`
   }
 
   .button {
-    background: #0aaf57;
+    font-family: 'Open Sans', cursive;
+    background: rgb(0, 178, 51);
     margin-bottom: 8px;
     margin-left: 20px;
     margin-right: 0;
     font-size: 14px;
-    padding: 8px 15px;
+    padding: 7px 15px;
     cursor: pointer;
     &:hover {
       background: #179b55;
     }
+  }
+
+  .button .icon {
+    font-size: 20px;
   }
 
   .button.cancel {
@@ -105,8 +113,8 @@ export const ModalForm = styled.form`
   }
 
   input {
-    background: rgba(0, 0, 0, 0.3);
-    color: #fff;
+    background: rgba(255, 255, 255, 0.5);
+    color: #767676;
     font-size: 15px;
     border: 0;
     border-radius: 4px;
@@ -118,6 +126,10 @@ export const ModalForm = styled.form`
     &:focus {
       border: 1px solid #1fcc6f;
     }
+
+    ::placeholder {
+      color: #c4c4c4;
+    }
   }
 
   .title {
@@ -125,17 +137,10 @@ export const ModalForm = styled.form`
     margin-left: 45px;
   }
 
-  h3 {
-    font-size: 23px;
-    margin-top: 20px;
-    color: #fff;
-  }
-
-  
   textarea {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.5);
+    color: #767676;
     font-size: 14px;
-    color: #fff;
     border: 0;
     border-radius: 4px;
     padding: 10px 15px 60px 10px;
@@ -144,10 +149,11 @@ export const ModalForm = styled.form`
     margin: 9px;
     resize: none;
     &:focus {
-      border: 1px solid #1fcc6f;
+      border: 1px solid #c4c4c4;
       margin: 9px;
     }
     &::placeholder {
+      color: #c4c4c4;
       font-size: 14px;
     }
   }

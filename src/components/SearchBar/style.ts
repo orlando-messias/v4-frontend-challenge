@@ -6,9 +6,9 @@ import styled from 'styled-components';
   width: 100%;
 
   #faSearch {
-      color: #f26532;
+      color: rgb(223, 46, 48);
       width: auto;
-      background: rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.5);
       height: 35px;
       padding: 0 15px;
       min-width: fit-content;
@@ -19,8 +19,8 @@ import styled from 'styled-components';
   .inputs {
     display: flex;
     justify-content: space-between;
-    margin-top: 18px;
-    margin-bottom: 15px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     width: 100%;
     align-items: center;
 
@@ -45,7 +45,7 @@ import styled from 'styled-components';
         align-items: center;
       }
 
-      button { margin: 6px 12px; padding: 5px 8px; }
+      button { margin: 6px 12px; padding: 6px 8px; }
 
       .searchCheckContainer {
         display: flex;
@@ -56,26 +56,18 @@ import styled from 'styled-components';
         align-items: center;
       }
       
-      // .searchCheck {
-      //   margin: unset;
-      // }
-
-      .spanCheck {
-        font-size: 16px;
-      }
     }
   }
 
   .searchCheck {
+    font-family: 'Open Sans', cursive;
     display: flex;
     align-items: center;
     justify-content: start;
     margin-left: 10px;
     width: 100%;
-  }
-
-  .spanCheck {
-    font-size: 20px;
+    font-size: 14px;
+    font-weight: bold;
     cursor: pointer;
   }
 
@@ -120,13 +112,17 @@ export const SearchInput = styled.input`
   height: 35px;
   margin: 0 ;
   padding-left: 10px;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.5);
   font-size: 20px;
-  color: #fff;
+  color: #767676;
   border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 
+  ::placeholder {
+    color: #c4c4c4;
+  }
+  
   @media(max-width: 650px ){
     width: 100%;
   }
@@ -134,6 +130,7 @@ export const SearchInput = styled.input`
 `;
 
 export const AddButton = styled.button`
+  font-family: 'Open Sans', cursive;
   display: flex;
   width: 120px;
   align-items: center;
@@ -141,7 +138,7 @@ export const AddButton = styled.button`
   font-size: 20px;
   border: none;
   border-radius: 5px;
-  background: #0aaf57;
+  background: rgb(0, 178, 51);
   padding: 8px 15px;
   font-size: 14px;
   cursor: pointer;

@@ -1,8 +1,9 @@
 import React, { FormEvent, useState, useContext } from 'react';
+import { FaPlus } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 
 import api from '../../services/api';
 import { ModalContainer, ModalForm } from './style';
-import { FaPlus } from "react-icons/fa";
 import { AppContext } from '../../context/AppContext';
 
 interface ModalProps {
@@ -18,7 +19,7 @@ export interface Tool {
   tags: string[];
 };
 
-export const Modal: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
+export const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
   const { onAdd, setOnAdd } = useContext(AppContext);
   const [title, setTitle] = useState('');
   const [link, setLink] = useState('');
@@ -35,7 +36,6 @@ export const Modal: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
       description,
       tags: newTags
     }).then(() => {
-      alert('New Toll added');
       setShowModal(false);
       setOnAdd(!onAdd);
     }).catch((error) => {
@@ -53,23 +53,26 @@ export const Modal: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
               <span>Add New Tool</span>
             </div>
 
-            <h4 className="title" placeholder="" >Tool Title</h4>
+            <h4 className="title" placeholder="" >Title</h4>
             <input
               type="text"
+              required
               placeholder="Tool title"
               autoFocus
               onChange={(e) => { setTitle(e.target.value) }}
             />
 
-            <h4 className="title" >Tool Link</h4>
+            <h4 className="title" >Link</h4>
             <input
               type="url"
+              required
               placeholder="https://www.domain.com"
               onChange={(e) => { setLink(e.target.value) }}
             />
 
-            <h4 className="title" >Tool Description</h4>
+            <h4 className="title" >Description</h4>
             <textarea
+              required
               placeholder="Type the description of the tool..."
               onChange={(e) => { setDescription(e.target.value) }}
             />
@@ -77,16 +80,17 @@ export const Modal: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
             <h4 className="title" >Tags</h4>
             <input
               type="text"
+              required
               placeholder="Tags"
               onChange={(e) => { setTags(e.target.value) }}
             />
 
             <div className="buttons">
               <button type="button" className="button cancel" onClick={() => setShowModal(false)} >
-                <span>Cancel</span>
+                <IoClose className="icon" /><span>Cancel</span>
               </button>
               <button type="submit" className="button">
-                <span>Add Tool</span>
+                <FaPlus /> <span>Add</span>
               </button>
             </div>
           </ModalForm>
