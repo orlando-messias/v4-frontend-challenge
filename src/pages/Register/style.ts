@@ -71,6 +71,11 @@ export const Form = styled.form`
     &:hover {
       background: rgb(29, 187, 29);
     }
+    &:disabled {
+      background: rgb(170, 170, 170);
+      cursor: not-allowed;
+      color: rgb(128, 128, 128);
+    }
   }
 
   .account {

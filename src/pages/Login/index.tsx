@@ -2,12 +2,14 @@ import React, { FormEvent, useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FaUserPlus } from "react-icons/fa";
 import { BsHouseDoorFill } from 'react-icons/bs';
+import { toast } from 'react-toastify';
 
 import api from '../../services/api';
 import { AddButton } from '../../components/SearchBar/style';
 import { SearchInput } from '../../components/SearchBar/style';
 import { Container, Form } from './style';
 import { AppContext } from '../../context/AppContext';
+import Validation from '../../services/Validation';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -29,8 +31,7 @@ const Login: React.FC = () => {
         history.push('/');
       })
       .catch((error) => {
-        if(error.response.status === 401)
-          alert(error.response.data.message);
+        toast.error(error.response.data.message);
       });
   };
 
@@ -55,7 +56,7 @@ const Login: React.FC = () => {
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}
         />
-        <AddButton color="#2F55CC">
+        <AddButton color="#2F55CC" disabled={!(Validation.email(email))}>
           Login
         </AddButton>
         <Link to="/register" className="account-link">

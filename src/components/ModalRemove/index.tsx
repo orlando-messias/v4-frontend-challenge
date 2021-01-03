@@ -28,7 +28,7 @@ export const ModalRemove: React.FC<ModalProps> = ({ showModal, setShowModal, han
               <button type="button" className="cancel" onClick={() => setShowModal(false)} >
                 <IoClose className="icon" /><span>Cancel</span>
               </button>
-              <button type="submit" onClick={(id) => handleRemove(id)}>
+              <button type="button" onClick={(id) => handleRemove(id)}>
                 <FaMinus /> <span>Remove</span>
               </button>
             </div>

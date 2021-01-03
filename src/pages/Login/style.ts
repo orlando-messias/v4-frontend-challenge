@@ -66,10 +66,16 @@ export const Form = styled.form`
     margin: 20px 0;
     font-size: 14px;
     text-align: center;
+    width: 300px;
     cursor: pointer;
 
     &:hover {
       background: rgb(29, 187, 29);
+    }
+    &:disabled {
+      background: rgb(170, 170, 170);
+      cursor: not-allowed;
+      color: rgb(128, 128, 128);
     }
   }
 

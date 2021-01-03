@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FaTrashAlt } from 'react-icons/all';
+import { toast } from 'react-toastify';
 
 import api from '../../services/api';
 import { Tool } from '../../pages/Home';
@@ -18,9 +19,14 @@ const ToolItem: React.FC<ToolProps> = ({ tool }) => {
   function handleRemove(id: String) {
     api.delete(`/tools/${id}`, { headers: { Authorization: `Bearer ${user?.token}` } })
       .then(() => {
+        setShowModal(false);
         setOnDelete(!onDelete);
-      }).catch((error) => {
-        alert(error);
+        toast.success('Tool removed');
+      }).catch(() => {
+        toast.error('You must login to remove any tool');
+        setTimeout(() => {
+          setShowModal(false);
+        }, 4000);
       });
   };
 

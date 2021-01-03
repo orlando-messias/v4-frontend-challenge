@@ -1,6 +1,7 @@
 import React, { FormEvent, useState, useContext } from 'react';
 import { FaPlus } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { toast } from 'react-toastify';
 
 import api from '../../services/api';
 import { ModalContainer, ModalForm } from './style';
@@ -36,10 +37,11 @@ export const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
       description,
       tags: newTags
     }, { headers: { Authorization: `Bearer ${user?.token}` } }).then(() => {
+      toast.success('Tool was successfully added');
       setShowModal(false);
       setOnAdd(!onAdd);
-    }).catch((error) => {
-      alert(error.response.data.message);
+    }).catch(() => {
+      toast.error('You must login to add a new tool');
     });
   };
 

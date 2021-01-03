@@ -20,11 +20,13 @@ export interface Tool {
 };
 
 function Home() {
-  const { tools, setTools, onDelete, onAdd, numberOfTools } = useContext(AppContext);
-  const [showModal, setShowModal] = useState(false);
+  const { tools, setTools } = useContext(AppContext);
+  const { onDelete, onAdd } = useContext(AppContext);
+  const { numberOfTools, setNumberOfTools } = useContext(AppContext);
   const { user, setUser } = useContext(AppContext);
 
-  
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
     if (savedUser) {
@@ -32,8 +34,14 @@ function Home() {
     }
     api.get<Tool[]>('/tools').then(response => {
       setTools(response.data);
+      setNumberOfTools(response.data.length);
     });
   }, [onDelete, onAdd]);
+
+  function logout() {
+    localStorage.removeItem('user');
+    window.location.reload();
+  }
 
   return (
     <div className="container">
@@ -48,8 +56,15 @@ function Home() {
         </div>
         <div className='user'>
           {user?.name ?
-            `Welcome, ${user.name.split(' ')[0]}` :
-            <Link to="/login" ><div className="login">Login</div></Link>} <FaUserCircle className="icon" />
+            <div className="welcome">
+              {`Welcome, ${user.name.split(' ')[0]}`}
+              <p className="login" onClick={() => logout()}>logout</p>
+            </div> :
+            <div>
+              <Link to="/login" ><div className="login">login</div></Link>
+            </div>
+          }
+          <FaUserCircle className="icon" />
         </div>
       </header>
 
