@@ -27,6 +27,19 @@ body{
   flex-direction: column;
 }
 
+.header h1 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 56px;
+  letter-spacing: 3px;
+  margin: 5px 10px 0px;
+}
+
+.header p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 28px;
+  margin: 0px 10px;
+}
+
 .user {
   width: 250px;
   height: 50px;
@@ -43,28 +56,36 @@ body{
 }
 
 .user .icon {
-  font-size: 30px;
+  font-size: 40px;
   margin-left: 10px;
   color: white;
-  /* border: 1px solid white; */
-  /* color: rgb(223, 46, 48); */
 }
 
-.header h1 {
-  font-family: 'Bebas Neue', cursive;
-  font-size: 56px;
-  letter-spacing: 3px;
-  margin: 5px 10px 0px;
-}
-
-.header p {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 28px;
-  margin: 0px 10px;
+.no-tools-found {
+  margin-top: 20px;
+  color: rgb(128, 128, 128);
+  font-size: 20px;
+  padding: 10px;
 }
 
 @media (max-width: 830px) {
   .container {
     width: 100vw;
   }
+}
+
+@media (max-width: 600px) {
+  .header p {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .user {
+    font-size: 14px;
+  }
+
+  .user .icon {
+    font-size: 30px;
+  }
+
 }

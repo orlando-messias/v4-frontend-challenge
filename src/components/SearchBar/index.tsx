@@ -12,13 +12,14 @@ interface SearchBarProps {
 export const SearchBar: React.FC<SearchBarProps> = ({ setShowModal }) => {
   const [searchBy, setSearchBy] = useState('');
   const [check, setCheck] = useState(false);
-  const { setTools } = useContext(AppContext);
+  const { setTools, setNumberOfTools } = useContext(AppContext);
 
   useEffect(() => {
     let param = '';
     check ? param = `tag=${searchBy}` : param = `title=${searchBy}`
     api.get(`/tools?${param}`).then(response => {
       setTools(response.data);
+      setNumberOfTools(response.data.length);
     });
   }, [searchBy, check]);
 

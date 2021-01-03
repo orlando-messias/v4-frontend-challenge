@@ -2,13 +2,14 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import ToolItem from '../../components/ToolItem';
 import api from '../../services/api';
-import logo from '../../images/v4logo.png';
+import logo from '../../images/v4logo2.png';
 import './style.css';
 import { ModalAdd } from '../../components/ModalAdd';
 import { SearchBar } from '../../components/SearchBar';
 import { AppContext } from '../../context/AppContext';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { FcSearch } from 'react-icons/fc';
 
 export interface Tool {
   id: string;
@@ -19,7 +20,7 @@ export interface Tool {
 };
 
 function Home() {
-  const { tools, setTools, onDelete, onAdd } = useContext(AppContext);
+  const { tools, setTools, onDelete, onAdd, numberOfTools } = useContext(AppContext);
   const [showModal, setShowModal] = useState(false);
   const { user, setUser } = useContext(AppContext);
 
@@ -59,6 +60,8 @@ function Home() {
       {tools.map((tool, index) => (
         <ToolItem key={index} tool={tool} />
       ))}
+
+      {numberOfTools === 0 && <div className="no-tools-found"><FcSearch /> No tools found</div>}
 
     </div>
   );

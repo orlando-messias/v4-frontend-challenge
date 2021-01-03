@@ -30,19 +30,21 @@ export const ModalForm = styled.form`
     margin-top: 0px;
   }
 
-  .modal-title span {  
-    font-size: 20px;
+  .modal-title span {
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+    font-size: 22px;
     font-weight: 900;
     marginRight: '5px';
     color: rgb(223, 46, 48);
-    margin: 10px 5px;
+    margin: 10px 5px 2px;
   }
 
   .title {
     font-family: 'Open Sans', sans-serif;
     margin: 20px 0 0;
     color: rgb(53, 51, 51);
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 15px;
   }
 
@@ -55,22 +57,19 @@ export const ModalForm = styled.form`
 
   button {
     font-family: 'Open Sans', cursive;
-    color: #fff;
+    color: rgb(255, 255, 255);
+    margin: 20px 0 0 20px;
+    padding: 7px 15px;
     display: flex;
     align-items: center;
     font-weight: bold;
-    font-size: 20px;
     border: none;
     border-radius: 5px;
     background: rgb(0, 178, 51);
-    padding: 8px 10px;
     font-size: 14px;
     cursor: pointer;
     &:hover {
-      background: #179b55;
-    }
-    &:active {
-      background: #148549;
+      background: rgb(29, 187, 29);
     }
     span {
       flex: 1;
@@ -87,35 +86,22 @@ export const ModalForm = styled.form`
     margin: 20px 20px 10px;
   }
 
-  .button {
-    font-family: 'Open Sans', cursive;
-    background: rgb(0, 178, 51);
-    margin-bottom: 8px;
-    margin-left: 20px;
-    margin-right: 0;
-    font-size: 14px;
-    padding: 7px 15px;
-    cursor: pointer;
-    &:hover {
-      background: #179b55;
-    }
-  }
-
-  .button .icon {
+  button .icon {
     font-size: 20px;
   }
 
-  .button.cancel {
+  .cancel {
     background: rgb(223, 46, 48);
     &:hover {
-      background: rgb(223, 65, 67);
+      background: rgb(255, 65, 67);
     }
   }
 
   input {
+    font-family: 'Questrial', sans-serif;
     background: rgba(255, 255, 255, 0.5);
-    color: #767676;
-    font-size: 15px;
+    color: rgb(118, 118, 101);
+    font-size: 18px;
     border: 0;
     border-radius: 4px;
     resize: vertical;
@@ -123,12 +109,9 @@ export const ModalForm = styled.form`
     height: 32px;
     padding: 15px;
     margin: 10px;
-    &:focus {
-      border: 1px solid #1fcc6f;
-    }
 
     ::placeholder {
-      color: #c4c4c4;
+      color: rgb(196, 196, 196);
     }
   }
 
@@ -138,9 +121,10 @@ export const ModalForm = styled.form`
   }
 
   textarea {
+    font-family: 'Questrial', sans-serif;
     background: rgba(255, 255, 255, 0.5);
-    color: #767676;
-    font-size: 14px;
+    color: rgb(118, 118, 118);
+    font-size: 18px;
     border: 0;
     border-radius: 4px;
     padding: 10px 15px 60px 10px;
@@ -148,13 +132,8 @@ export const ModalForm = styled.form`
     height: 200px;
     margin: 9px;
     resize: none;
-    &:focus {
-      border: 1px solid #c4c4c4;
-      margin: 9px;
-    }
     &::placeholder {
-      color: #c4c4c4;
-      font-size: 14px;
+      color: rgb(196, 196, 196);
     }
   }
 `;

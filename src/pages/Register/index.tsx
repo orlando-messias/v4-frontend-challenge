@@ -1,19 +1,19 @@
 import React, { FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FaUserCheck, FaUserPlus } from "react-icons/fa";
+import { FaUserCheck } from "react-icons/fa";
+import { BsHouseDoorFill } from 'react-icons/bs';
 
 import api from '../../services/api';
 import { AddButton } from '../../components/SearchBar/style';
 import { SearchInput } from '../../components/SearchBar/style';
 import { Container, Form } from './style';
-import { BsHouseDoorFill } from 'react-icons/bs';
 
 const Register: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // const history = useHistory();
+  const history = useHistory();
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -23,11 +23,9 @@ const Register: React.FC = () => {
         email,
         password
       })
-      .then((response) => {
-        console.log(response.data);
-        // const { token, user } = response.data;
-        // const { name, email, role } = user;
-        // const userData = { name, email, token, role };
+      .then(() => {
+        alert('Account has been successfully created! Now you can login');
+        history.push('/login');
       })
       .catch((error) => alert(error.response.data.message));
   };

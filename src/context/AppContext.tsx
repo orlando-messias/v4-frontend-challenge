@@ -18,17 +18,9 @@ interface ContextValue {
   setOnAdd(toggle: boolean): void;
   user: User | null;
   setUser: Function;
+  numberOfTools: Number;
+  setNumberOfTools: Function;
 };
-
-// const initialState: ContextValue = {
-//   tools: [],
-//   setTools: Function,
-//   onDelete: false,
-//   setOnDelete: Function,
-//   onAdd: false,
-//   setOnAdd: Function,
-//   user = 
-// };
 
 export const AppContext = createContext<ContextValue>({} as ContextValue);
 
@@ -41,6 +33,7 @@ export function AppContextProvider(props: Props): JSX.Element {
   const [onDelete, setOnDelete] = useState(false);
   const [onAdd, setOnAdd] = useState(false);
   const [user, setUser] = useState<User | null>(null);
+  const [numberOfTools, setNumberOfTools] = useState(0);
 
   const context = {
     tools,
@@ -50,7 +43,9 @@ export function AppContextProvider(props: Props): JSX.Element {
     onAdd,
     setOnAdd,
     user,
-    setUser
+    setUser,
+    numberOfTools,
+    setNumberOfTools
   };
 
   return <AppContext.Provider value={context}>{props.children}</AppContext.Provider>

@@ -6,15 +6,15 @@ import styled from 'styled-components';
   width: 100%;
 
   #faSearch {
-      color: rgb(223, 46, 48);
-      width: auto;
-      background: rgba(255, 255, 255, 0.5);
-      height: 35px;
-      padding: 0 15px;
-      min-width: fit-content;
-      border-top-left-radius: 6px;
-      border-bottom-left-radius: 5px;
-    }
+    color: rgb(223, 46, 48);
+    width: auto;
+    background: rgba(255, 255, 255, 0.5);
+    height: 35px;
+    padding: 0 15px;
+    min-width: fit-content;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 5px;
+  }
 
   .inputs {
     display: flex;
@@ -35,7 +35,7 @@ import styled from 'styled-components';
       align-items: center;
     }
 
-    @media(max-width: 650px ){
+    @media(max-width: 600px ){
       display: block;
       margin-left: 0;
 
@@ -71,33 +71,6 @@ import styled from 'styled-components';
     cursor: pointer;
   }
 
-  .profile{
-    display: flex;
-    align-self: flex-start;
-    text-align: right;
-    margin-left: auto;
-    place-items: center;
-
-    .profileName {
-      margin-right: 12px;
-      }
-
-    a {
-      text-decoration: none;
-      font-size: 18px;
-      color: #f26532;
-      font-weight: bold;
-      display:block;
-
-      &:hover {
-        color: #f04b0f;
-      }
-      &:active {
-        color: #c03c0c;
-      }
-    }
-  }
-
 `;
 
 export const CheckBoxInput = styled.input`
@@ -108,22 +81,23 @@ export const CheckBoxInput = styled.input`
 `;
 
 export const SearchInput = styled.input`
+  font-family: 'Questrial', sans-serif;
   display: block;
   height: 35px;
   margin: 0 ;
   padding-left: 10px;
   background: rgba(255, 255, 255, 0.5);
   font-size: 20px;
-  color: #767676;
+  color: rgb(118, 118, 101);
   border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 
   ::placeholder {
-    color: #c4c4c4;
+    color: rgb(196, 196, 196);
   }
   
-  @media(max-width: 650px ){
+  @media(max-width: 600px ){
     width: 100%;
   }
 
@@ -145,16 +119,16 @@ export const AddButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background: #179b55;
+    background: rgb(29, 187, 29);
   }
 
   .plusIcon {
-    color: #fff;
+    color: rgb(255, 255, 255);
     size: 18px;
   }
 
   span {
-    color: #fff;
+    color: rgb(255, 255, 255);
     text-align: center;
     font-weight: bold;
     margin-left: 10px;
