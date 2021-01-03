@@ -20,11 +20,12 @@ export interface Tool {
 };
 
 export const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
-  const { onAdd, setOnAdd } = useContext(AppContext);
+  const { onAdd, setOnAdd, user } = useContext(AppContext);
   const [title, setTitle] = useState('');
   const [link, setLink] = useState('');
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState('');
+  console.log(user?.token);
 
   function handleCreateTool(e: FormEvent) {
     e.preventDefault();
@@ -35,7 +36,7 @@ export const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
       link,
       description,
       tags: newTags
-    }).then(() => {
+    }, { headers: { Authorization: `Bearer ${user?.token}` } }).then(() => {
       setShowModal(false);
       setOnAdd(!onAdd);
     }).catch((error) => {

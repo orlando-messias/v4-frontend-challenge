@@ -132,6 +132,7 @@ export const SearchInput = styled.input`
 export const AddButton = styled.button`
   font-family: 'Open Sans', cursive;
   display: flex;
+  justify-content: center;
   width: 120px;
   align-items: center;
   font-weight: bold;
