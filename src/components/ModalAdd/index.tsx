@@ -20,7 +20,7 @@ export interface Tool {
 };
 
 export const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
-  const { onAdd, setOnAdd } = useContext(AppContext);
+  const { onAdd, setOnAdd, user } = useContext(AppContext);
   const [title, setTitle] = useState('');
   const [link, setLink] = useState('');
   const [description, setDescription] = useState('');
@@ -35,7 +35,7 @@ export const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
       link,
       description,
       tags: newTags
-    }).then(() => {
+    }, { headers: { Authorization: `Bearer ${user?.token}` } }).then(() => {
       setShowModal(false);
       setOnAdd(!onAdd);
     }).catch((error) => {
@@ -81,15 +81,15 @@ export const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
             <input
               type="text"
               required
-              placeholder="Tags"
+              placeholder="tags"
               onChange={(e) => { setTags(e.target.value) }}
             />
 
             <div className="buttons">
-              <button type="button" className="button cancel" onClick={() => setShowModal(false)} >
+              <button type="button" className="cancel" onClick={() => setShowModal(false)} >
                 <IoClose className="icon" /><span>Cancel</span>
               </button>
-              <button type="submit" className="button">
+              <button type="submit">
                 <FaPlus /> <span>Add</span>
               </button>
             </div>

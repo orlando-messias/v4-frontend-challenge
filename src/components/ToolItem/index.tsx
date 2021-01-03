@@ -12,11 +12,11 @@ interface ToolProps {
 };
 
 const ToolItem: React.FC<ToolProps> = ({ tool }) => {
-  const { onDelete, setOnDelete } = useContext(AppContext);
+  const { onDelete, setOnDelete, user } = useContext(AppContext);
   const [showModal, setShowModal] = useState(false);
 
-  async function handleRemove(id: String) {
-    api.delete(`/tools/${id}`)
+  function handleRemove(id: String) {
+    api.delete(`/tools/${id}`, { headers: { Authorization: `Bearer ${user?.token}` } })
       .then(() => {
         setOnDelete(!onDelete);
       }).catch((error) => {

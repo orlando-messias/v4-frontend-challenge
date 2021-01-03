@@ -24,23 +24,23 @@ export const ModalDialog = styled.form`
   top: 80px;
 
   .modal-title {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 2px;
+    font-size: 22px;
     display: flex;
     align-items: center;
-    margin-top: 0px;
+    color: rgb(223, 46, 48);
   }
 
   .modal-title .icon {
-    font-size: 24px;
+    font-size: 26px;
     margin-top: 5px;
   }
 
-  .modal-title span {  
-    font-size: 20px;
+  .modal-title span {
+    font-family: 'Bebas Neue', cursive;
+    margin: 7px 3px;
     font-weight: 900;
-    marginRight: '5px';
-    color: rgb(223, 46, 48);
-    margin: 7px 5px;
   }
 
   .title {
@@ -59,22 +59,20 @@ export const ModalDialog = styled.form`
   }
 
   button {
-    align-self: flex-end;
-    margin : 10px 45px 40px;
-    align-items: center;
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: #fff;
-    border: 0;
-    padding: 5px 10px;
-    border-radius: 5px;
+    font-family: 'Open Sans', cursive;
+    color: rgb(255, 255, 255);
+    margin: 5px 0 10px 20px;
+    padding: 7px 15px;
     display: flex;
+    align-items: center;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background: rgb(0, 178, 51);
+    font-size: 14px;
+    cursor: pointer;
     &:hover {
-      background: #179b55;
-    }
-    &:active {
-      background: #148549;
+      background: rgb(29, 187, 29);
     }
     span {
       flex: 1;
@@ -91,29 +89,14 @@ export const ModalDialog = styled.form`
     margin: 20px 20px 10px;
   }
 
-  .button {
-    font-family: 'Open Sans', cursive;
-    background: rgb(0, 178, 51);
-    margin-bottom: 8px;
-    margin-left: 20px;
-    margin-right: 0;
-    font-size: 14px;
-    padding: 7px 15px;
-    cursor: pointer;
-    &:hover {
-      background: #179b55;
-    }
-  }
-
-  .button .icon {
+  button .icon {
     font-size: 20px;
   }
 
-  .button.cancel {
+  button.cancel {
     background: rgb(223, 46, 48);
-    padding-top: 6px;
     &:hover {
-      background: rgb(223, 65, 67);
+      background: rgb(255, 65, 67);
     }
   }
 

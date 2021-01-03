@@ -14,6 +14,17 @@ body{
 .header {
   margin-top: 32px;
   display: flex;
+  justify-content: space-between;
+}
+
+.header .brand {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header .brand .title {
+  display: flex;
+  flex-direction: column;
 }
 
 .header h1 {
@@ -29,8 +40,52 @@ body{
   margin: 0px 10px;
 }
 
+.user {
+  width: 250px;
+  height: 50px;
+  font-weight: bold;
+  text-align: right;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.user .login {
+  color: blue;
+}
+
+.user .icon {
+  font-size: 40px;
+  margin-left: 10px;
+  color: white;
+}
+
+.no-tools-found {
+  margin-top: 20px;
+  color: rgb(128, 128, 128);
+  font-size: 20px;
+  padding: 10px;
+}
+
 @media (max-width: 830px) {
   .container {
     width: 100vw;
   }
+}
+
+@media (max-width: 600px) {
+  .header p {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .user {
+    font-size: 14px;
+  }
+
+  .user .icon {
+    font-size: 30px;
+  }
+
 }

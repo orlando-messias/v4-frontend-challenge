@@ -2,25 +2,27 @@ import React, { createContext, useState, ReactNode } from 'react';
 
 import { Tool } from '../pages/Home';
 
+interface User {
+  id: string,
+  name: string,
+  email: string,
+  token: string
+}
+
 interface ContextValue {
   tools: Tool[];
-  setTools: Function;
+  setTools(tools: Tool[]): void;
   onDelete: Boolean;
-  setOnDelete: Function;
+  setOnDelete(toggle: boolean): void;
   onAdd: Boolean;
-  setOnAdd: Function;
+  setOnAdd(toggle: boolean): void;
+  user: User | null;
+  setUser: Function;
+  numberOfTools: Number;
+  setNumberOfTools: Function;
 };
 
-const initialState: ContextValue = {
-  tools: [],
-  setTools: Function,
-  onDelete: false,
-  setOnDelete: Function,
-  onAdd: false,
-  setOnAdd: Function
-};
-
-export const AppContext = createContext(initialState);
+export const AppContext = createContext<ContextValue>({} as ContextValue);
 
 interface Props {
   children: ReactNode;
@@ -30,6 +32,8 @@ export function AppContextProvider(props: Props): JSX.Element {
   const [tools, setTools] = useState<Tool[]>([]);
   const [onDelete, setOnDelete] = useState(false);
   const [onAdd, setOnAdd] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [numberOfTools, setNumberOfTools] = useState(0);
 
   const context = {
     tools,
@@ -37,7 +41,11 @@ export function AppContextProvider(props: Props): JSX.Element {
     onDelete,
     setOnDelete,
     onAdd,
-    setOnAdd
+    setOnAdd,
+    user,
+    setUser,
+    numberOfTools,
+    setNumberOfTools
   };
 
   return <AppContext.Provider value={context}>{props.children}</AppContext.Provider>
