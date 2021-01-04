@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 import api from '../../services/api';
 import { Tool } from '../../pages/Home';
-import { ModalRemove } from '../ModalRemove';
+import ModalRemove from '../ModalRemove';
 import { AppContext } from '../../context/AppContext';
 import './style.css';
 
@@ -12,10 +12,12 @@ interface ToolProps {
   tool: Tool;
 };
 
+// renders each individual tool with its title, link, description, tags and remove button
 const ToolItem: React.FC<ToolProps> = ({ tool }) => {
   const { onDelete, setOnDelete, user } = useContext(AppContext);
   const [showModal, setShowModal] = useState(false);
 
+  // deletes a tool using the delete route /tools/id
   function handleRemove(id: String) {
     api.delete(`/tools/${id}`, { headers: { Authorization: `Bearer ${user?.token}` } })
       .then(() => {

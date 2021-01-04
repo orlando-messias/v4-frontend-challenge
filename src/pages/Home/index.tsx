@@ -2,10 +2,10 @@ import React, { useEffect, useState, useContext } from 'react';
 
 import ToolItem from '../../components/ToolItem';
 import api from '../../services/api';
-import logo from '../../images/v4logo2.png';
+import logo from '../../images/v4logo.png';
 import './style.css';
-import { ModalAdd } from '../../components/ModalAdd';
-import { SearchBar } from '../../components/SearchBar';
+import ModalAdd from '../../components/ModalAdd';
+import SearchBar from '../../components/SearchBar';
 import { AppContext } from '../../context/AppContext';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -19,7 +19,7 @@ export interface Tool {
   tags: string[];
 };
 
-function Home() {
+const Home: React.FC = () => {
   const { tools, setTools } = useContext(AppContext);
   const { onDelete, onAdd } = useContext(AppContext);
   const { numberOfTools, setNumberOfTools } = useContext(AppContext);
@@ -27,6 +27,7 @@ function Home() {
 
   const [showModal, setShowModal] = useState(false);
 
+  // get all tools saved using the get route /tools
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
     if (savedUser) {
@@ -55,6 +56,8 @@ function Home() {
           </div>
         </div>
         <div className='user'>
+
+          {/* renders a div with user data if values are set to the context user */}
           {user?.name ?
             <div className="welcome">
               {`Welcome, ${user.name.split(' ')[0]}`}
@@ -76,6 +79,7 @@ function Home() {
         <ToolItem key={index} tool={tool} />
       ))}
 
+      {/* renders a div only if there is no tools found */}
       {numberOfTools === 0 && <div className="no-tools-found"><FcSearch /> No tools found</div>}
 
     </div>

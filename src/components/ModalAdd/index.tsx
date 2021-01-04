@@ -20,13 +20,15 @@ export interface Tool {
   tags: string[];
 };
 
-export const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
+// renders a modal to add a new tool. The styles here were applied using styled components
+const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
   const { onAdd, setOnAdd, user } = useContext(AppContext);
   const [title, setTitle] = useState('');
   const [link, setLink] = useState('');
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState('');
 
+  // saves the values of the states title, link, description and tags to DB using the post route /tools
   function handleCreateTool(e: FormEvent) {
     e.preventDefault();
     const newTags = tags.split(' ');
@@ -101,3 +103,5 @@ export const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
     </div>
   );
 };
+
+export default ModalAdd;

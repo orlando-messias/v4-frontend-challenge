@@ -10,7 +10,8 @@ interface ModalProps {
   handleRemove: Function;
 };
 
-export const ModalRemove: React.FC<ModalProps> = ({ showModal, setShowModal, handleRemove }) => {
+// renders a modal dialog to remove a tool. The styles here were applied using styled components
+const ModalRemove: React.FC<ModalProps> = ({ showModal, setShowModal, handleRemove }) => {
 
   return (
     <div>
@@ -38,3 +39,5 @@ export const ModalRemove: React.FC<ModalProps> = ({ showModal, setShowModal, han
     </div>
   );
 };
+
+export default ModalRemove;

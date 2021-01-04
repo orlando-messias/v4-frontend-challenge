@@ -11,13 +11,15 @@ import { Container, Form } from './style';
 import { AppContext } from '../../context/AppContext';
 import Validation from '../../services/Validation';
 
+// renders a form to login. The styles here were applied using styled components
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { setUser } = useContext(AppContext);
-
+  
   const history = useHistory();
-
+  
+  // logs into an user account using the route /users/login
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     await api
@@ -56,7 +58,7 @@ const Login: React.FC = () => {
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}
         />
-        <AddButton color="#2F55CC" disabled={!(Validation.email(email))}>
+        <AddButton color="#2F55CC" disabled={!(Validation.email(email) && Validation.passwordToLog(password))}>
           Login
         </AddButton>
         <Link to="/register" className="account-link">

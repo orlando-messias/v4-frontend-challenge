@@ -9,13 +9,17 @@ interface SearchBarProps {
   setShowModal: Function;
 };
 
-export const SearchBar: React.FC<SearchBarProps> = ({ setShowModal }) => {
+// renders the component search bar. The styles here were applied using styled components
+const SearchBar: React.FC<SearchBarProps> = ({ setShowModal }) => {
   const [searchBy, setSearchBy] = useState('');
   const [check, setCheck] = useState(false);
   const { setTools, setNumberOfTools } = useContext(AppContext);
 
+  // finds a tool by its title or tag name using the get route /tools
   useEffect(() => {
     let param = '';
+    // when the state check is true, search engine must use 'tag' as a param, on the other hand use 'title'
+    // as a param to search
     check ? param = `tag=${searchBy}` : param = `title=${searchBy}`
     api.get(`/tools?${param}`).then(response => {
       setTools(response.data);
@@ -23,6 +27,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ setShowModal }) => {
     });
   }, [searchBy, check]);
 
+  // toggle between checked and unchecked to search by tag name or title
   const handleCheck = () => setCheck(!check);
 
   return (
@@ -63,4 +68,4 @@ export const SearchBar: React.FC<SearchBarProps> = ({ setShowModal }) => {
   );
 };
 
-
+export default SearchBar;

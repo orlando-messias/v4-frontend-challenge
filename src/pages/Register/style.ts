@@ -54,6 +54,12 @@ export const Form = styled.form`
     }
   }
 
+  .password-info {
+    font-size: 13px;
+    margin: 5px;
+    color: rgb(255, 69, 0);
+  }
+
   button {
     font-family: 'Open Sans', cursive;
     color: rgb(255, 255, 255);
@@ -80,6 +86,7 @@ export const Form = styled.form`
 
   .account {
     text-align: center;
+    color: rgb(0, 0, 255);
     align-items: center;
     width: 178px;
     margin-top: 30px;
