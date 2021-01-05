@@ -4,7 +4,7 @@
 
 VUTTR is a repository that allows you to manage some tools with their respective ***names, links, descriptions*** and ***tags*** by searching, adding and removing them.
 
-Everyone can search for tools in the repository but in case of adding new ones or delete them, user login is required. *PS:* in case of your first access, you need to register first by name, email and password.
+Everyone can search for tools in the repository but in case of adding new ones or delete them, user login is required. **PS:** in case of your first access, you need to register first and then login to add or delete any tool.
 
 The project runs on port **3001**.
 
@@ -17,13 +17,6 @@ The project runs on port **3001**.
 
 ### :gear: Install
 ```
-1. clone the repository:
-$ git clone https://github.com/italoiz/bossabox-frontend-challenge.git
-2. install all dependencies:
-npm install or yarn
-3. run the project to start the server
-npm start or yarn start
-
 ## Clone the repository
 $ git clone https://github.com/orlando-messias/v4-frontend-challenge.git
 
@@ -43,4 +36,4 @@ $ npm start
 - [React-Toastify](https://fkhadra.github.io/react-toastify)
 
 #
-Developed by Orlando Messias [linkedin.com/in/orlando-messias-dev](https://www.linkedin.com/in/orlando-messias-dev)
+> Developed by Orlando Messias [linkedin.com/in/orlando-messias-dev](https://www.linkedin.com/in/orlando-messias-dev)
