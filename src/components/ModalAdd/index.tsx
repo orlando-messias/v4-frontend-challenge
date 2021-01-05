@@ -29,9 +29,20 @@ const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
   const [tags, setTags] = useState('');
 
   // saves the values of the states title, link, description and tags to DB using the post route /tools
-  function handleCreateTool(e: FormEvent) {
+  async function handleCreateTool(e: FormEvent) {
     e.preventDefault();
     const newTags = tags.split(' ');
+    console.log(tags);
+    
+    if (description.length < 10 || description.length > 200) {
+      toast.error('Description must be between 10 and 200 characters long');
+      return;
+    }
+
+    if (tags === ' ' || tags === '') {
+      toast.error('Empty tag');
+      return;
+    }
 
     api.post('/tools', {
       title,
@@ -45,7 +56,7 @@ const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
     }).catch((error) => {
       (error.response.status === 401) ?
         toast.error('You must login to add a new tool') :
-        toast.error('Missing entries or too short');
+        toast.error(error.response.data.message);
     });
   };
 
@@ -86,7 +97,6 @@ const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
             <h4 className="title" >Tags</h4>
             <input
               type="text"
-              required
               placeholder="tags"
               onChange={(e) => { setTags(e.target.value) }}
             />
