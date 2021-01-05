@@ -11,8 +11,8 @@ The project runs on port **3001**.
 ### :camera: Screenshots
 ![](/src/images/home.png)
 ![](/src/images/newtool.png)
-![](/src/images/register.png)
 ![](/src/images/search.png)
+![](/src/images/register.png)
 
 
 ### :gear: Install
