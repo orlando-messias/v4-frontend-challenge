@@ -9,10 +9,10 @@ Everyone can search for tools in the repository but in case of adding new ones o
 The project runs on port **3001**.
 
 ### :camera: Screenshots
-![](/images/home.png)
-![](/images/newtool.png)
-![](/images/register.png)
-![](/images/search.png)
+![](/src/images/home.png)
+![](/src/images/newtool.png)
+![](/src/images/register.png)
+![](/src/images/search.png)
 
 
 ### :gear: Install
