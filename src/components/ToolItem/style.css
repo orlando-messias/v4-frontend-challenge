@@ -4,13 +4,13 @@
 
 a {
   text-decoration: none;
-  color: rgb(85, 85, 85);
+  color: rgb(0, 0, 255);
 }
 
 .tool-item {
   font-family: 'Questrial', sans-serif;
-  background-color: rgb(255, 255, 255, 0.6);
-  border: 3px solid white;
+  background-color: rgb(255, 255, 255, 0.5);
+  border: 3px solid rgb(255, 255, 255, 0.8);
   border-radius: 5px;
   margin: 8px 0px;
   padding: 0px 20px;

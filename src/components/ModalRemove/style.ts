@@ -90,7 +90,7 @@ export const ModalDialog = styled.form`
   }
 
   button .icon {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   button.cancel {

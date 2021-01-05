@@ -2,20 +2,24 @@ import React, { FormEvent, useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FaUserPlus } from "react-icons/fa";
 import { BsHouseDoorFill } from 'react-icons/bs';
+import { toast } from 'react-toastify';
 
 import api from '../../services/api';
 import { AddButton } from '../../components/SearchBar/style';
 import { SearchInput } from '../../components/SearchBar/style';
 import { Container, Form } from './style';
 import { AppContext } from '../../context/AppContext';
+import Validation from '../../services/Validation';
 
+// renders a form to login. The styles here were applied using styled components
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { setUser } = useContext(AppContext);
-
+  
   const history = useHistory();
-
+  
+  // logs into an user account using the route /users/login
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     await api
@@ -29,8 +33,7 @@ const Login: React.FC = () => {
         history.push('/');
       })
       .catch((error) => {
-        if(error.response.status === 401)
-          alert(error.response.data.message);
+        toast.error(error.response.data.message);
       });
   };
 
@@ -55,7 +58,7 @@ const Login: React.FC = () => {
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}
         />
-        <AddButton color="#2F55CC">
+        <AddButton color="#2F55CC" disabled={!(Validation.email(email) && Validation.passwordToLog(password))}>
           Login
         </AddButton>
         <Link to="/register" className="account-link">

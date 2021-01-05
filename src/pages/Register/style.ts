@@ -54,6 +54,12 @@ export const Form = styled.form`
     }
   }
 
+  .password-info {
+    font-size: 13px;
+    margin: 5px;
+    color: rgb(255, 69, 0);
+  }
+
   button {
     font-family: 'Open Sans', cursive;
     color: rgb(255, 255, 255);
@@ -71,10 +77,16 @@ export const Form = styled.form`
     &:hover {
       background: rgb(29, 187, 29);
     }
+    &:disabled {
+      background: rgb(170, 170, 170);
+      cursor: not-allowed;
+      color: rgb(128, 128, 128);
+    }
   }
 
   .account {
     text-align: center;
+    color: rgb(0, 0, 255);
     align-items: center;
     width: 178px;
     margin-top: 30px;

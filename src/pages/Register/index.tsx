@@ -2,12 +2,15 @@ import React, { FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FaUserCheck } from "react-icons/fa";
 import { BsHouseDoorFill } from 'react-icons/bs';
+import { toast } from 'react-toastify';
 
 import api from '../../services/api';
 import { AddButton } from '../../components/SearchBar/style';
 import { SearchInput } from '../../components/SearchBar/style';
 import { Container, Form } from './style';
+import Validation from '../../services/Validation';
 
+// renders a form to register user data. The styles here were applied using styled components
 const Register: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -15,6 +18,7 @@ const Register: React.FC = () => {
 
   const history = useHistory();
 
+  // registers a new user account using the post route /users/save
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     await api
@@ -24,10 +28,10 @@ const Register: React.FC = () => {
         password
       })
       .then(() => {
-        alert('Account has been successfully created! Now you can login');
+        toast.success('Account successfully created! Now you can login');
         history.push('/login');
       })
-      .catch((error) => alert(error.response.data.message));
+      .catch((error) => toast.error(error.response.data.message));
   };
 
   return (
@@ -56,7 +60,11 @@ const Register: React.FC = () => {
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}
         />
-        <AddButton color="#2F55CC">
+        <span className="password-info">* minimum 06 characters. Letters and numbers required</span>
+        <AddButton
+          color="#2F55CC"
+          disabled={!(Validation.email(email) && Validation.name(name) && Validation.passwordToReg(password))}
+        >
           Create Account
         </AddButton>
         <Link to="/login">
