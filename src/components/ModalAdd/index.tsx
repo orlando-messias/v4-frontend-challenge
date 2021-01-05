@@ -42,8 +42,10 @@ const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
       toast.success('Tool was successfully added');
       setShowModal(false);
       setOnAdd(!onAdd);
-    }).catch(() => {
-      toast.error('You must login to add a new tool');
+    }).catch((error) => {
+      (error.response.status === 401) ?
+        toast.error('You must login to add a new tool') :
+        toast.error('Missing entries or too short');
     });
   };
 
