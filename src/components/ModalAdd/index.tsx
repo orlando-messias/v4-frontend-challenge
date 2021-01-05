@@ -52,6 +52,7 @@ const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
     }, { headers: { Authorization: `Bearer ${user?.token}` } }).then(() => {
       toast.success('Tool was successfully added');
       setShowModal(false);
+      setTags('');
       setOnAdd(!onAdd);
     }).catch((error) => {
       (error.response.status === 401) ?
