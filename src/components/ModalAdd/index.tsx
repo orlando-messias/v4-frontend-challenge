@@ -32,10 +32,15 @@ const ModalAdd: React.FC<ModalProps> = ({ showModal, setShowModal }) => {
   async function handleCreateTool(e: FormEvent) {
     e.preventDefault();
     const newTags = tags.split(' ');
-    console.log(tags);
-    
+
+    // personalizing messages to toast according to http status
     if (description.length < 10 || description.length > 200) {
       toast.error('Description must be between 10 and 200 characters long');
+      return;
+    }
+
+    if (link.length > 50) {
+      toast.error('Link too long');
       return;
     }
 
